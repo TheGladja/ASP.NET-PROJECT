@@ -1,0 +1,82 @@
+<div class="spacing">
+  <h1>Professors</h1>
+    <ul>
+      <li>
+        <label for="professor-first-name">Enter Professor First Name:</label>
+        <input type="text" [(ngModel)]="selectedFirstName">
+      </li>
+      <li>
+        <label for="professor-last-name">Enter Professor Last Name:</label>
+        <input type="text" [(ngModel)]="selectedLastName">
+      </li>
+      <li>
+        <label for="professor-study-subject">Enter Professor Study Subject:</label>
+        <input type="text" [(ngModel)]="selectedStudySubject">
+      </li>
+      <li>
+        <label for="professor-city">Enter Professor City:</label>
+        <input type="text" [(ngModel)]="selectedCity">
+      </li>
+      <li>
+        <label for="professor-street">Enter Professor Street:</label>
+        <input type="text" [(ngModel)]="selectedStreet">
+      </li>
+      <li>
+        <label for="professor-postcode">Enter Professor Postcode:</label>
+        <input type="text" [(ngModel)]="selectedPostcode">
+      </li>
+    </ul>
+    <button (click)="createProfessor(selectedFirstName, selectedLastName, selectedStudySubject, selectedCity, selectedStreet, selectedPostcode)">Create Professor</button>
+
+    <button (click)="deleteAllProfessors()">Delete All Professors</button>
+
+    <div>
+      <label for="professor-id">Enter Professor Id for deletion:</label>
+      <input type="text" [(ngModel)]="selectedDeleteId">
+      <button (click)="deleteProfessorById(selectedDeleteId)">Delete Professor</button>
+    </div>
+
+    <div>
+      <label for="professor-id">Enter Professor Name:</label>
+      <input type="text" [(ngModel)]="selectedProfessorName">
+      <button (click)="showSelectedProfessor = true; getProfessorByName(selectedProfessorName)">Find Professor</button>
+    </div>
+
+    <div>
+      <label for="professor-id">Enter Professor ID:</label>
+      <input type="text" [(ngModel)]="selectedId">
+      <button (click)="getProfessorById(selectedId)">Find Professor</button>
+    </div>
+
+    <div *ngIf="selectedProfessor">
+      <h2>Selected Professor</h2>
+      <p>ID: {{ selectedProfessor.id }}</p>
+      <p>First Name: {{ selectedProfessor.first_Name }}</p>
+      <p>Last Name: {{ selectedProfessor.last_Name }}</p>
+      <p>Study Subject: {{ selectedProfessor.study_Subject }}</p>
+      <p>City: {{ selectedProfessor.city }}</p>
+      <p>Street: {{ selectedProfessor.street }}</p>
+      <p>Postcode: {{ selectedProfessor.postCode }}</p>
+    </div>
+
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Study Subject</th>
+        <th>City</th>
+        <th>Street</th>
+        <th>Postcode</th>
+      </tr>
+      <tr *ngFor="let professor of professors">
+        <td>{{ professor.id }}</td>
+        <td>{{ professor.first_Name }}</td>
+        <td>{{ professor.last_Name }}</td>
+        <td>{{ professor.study_Subject }}</td>
+        <td>{{ professor.city }}</td>
+        <td>{{ professor.street }}</td>
+        <td>{{ professor.postCode }}</td>
+      </tr>
+    </table>
+ </div>

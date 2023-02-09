@@ -1,0 +1,35 @@
+<div class="spacing">
+  <h1>Users</h1>
+  <ul>
+    <li>
+      <label for="user-oldName">Enter User Old Name:</label>
+      <input type="text" [(ngModel)]="selectedOldName">
+    </li>
+    <li>
+      <label for="user-newName">Enter User New Name:</label>
+      <input type="text" [(ngModel)]="selectedNewName">
+    </li>
+  </ul>
+  <button (click)="updateUser(selectedOldName, selectedNewName)">Update User</button>
+  <div>
+    <label for="user-id">Enter User Name:</label>
+    <input type="text" [(ngModel)]="selectedUsername">
+    <button (click)="showSelectedUser = true; getByUsername(selectedUsername)">Find User</button>
+  </div>
+  <div *ngIf="showSelectedUser && selectedUser && selectedUser.username && selectedUser.email">
+    <h2>Selected User</h2>
+    <p *ngIf="selectedUser.username">Username: {{ selectedUser.username }}</p>
+    <p *ngIf="selectedUser.email">Email: {{ selectedUser.email }}</p>
+  </div>
+  <table>
+    <tr>
+      <th>Username</th>
+      <th>Email</th>
+    </tr>
+    <tr *ngFor="let user of users">
+      <td>{{ user.username }}</td>
+      <td>{{ user.email }}</td>
+    </tr>
+  </table>
+</div>
+

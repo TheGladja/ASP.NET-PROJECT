@@ -1,0 +1,37 @@
+<div class="spacing">
+  <h1>Addresses</h1>
+  <button (click)="deleteAllAddresses()">Delete All Addresses</button>
+  <div>
+    <label for="address-id">Enter Address Id for deletion:</label>
+    <input type="text" [(ngModel)]="selectedDeleteId">
+    <button (click)="deleteAddressById(selectedDeleteId)">Delete Address</button>
+  </div>
+  <div>
+    <label for="address-id">Enter Address ID:</label>
+    <input type="text" [(ngModel)]="selectedId">
+    <button (click)="getAddressById(selectedId)">Find Address</button>
+  </div>
+  <div *ngIf="selectedAddress">
+    <h2>Selected Address</h2>
+    <p>ID: {{ selectedAddress.id }}</p>
+    <p>City: {{ selectedAddress.city }}</p>
+    <p>Street: {{ selectedAddress.street }}</p>
+    <p>Postcode: {{ selectedAddress.postcode }}</p>
+  </div>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>City</th>
+      <th>Street</th>
+      <th>Postcode</th>
+    </tr>
+    <tr *ngFor="let address of addresses">
+      <td>{{ address.id }}</td>
+      <td>{{ address.city }}</td>
+      <td>{{ address.street }}</td>
+      <td>{{ address.postcode }}</td>
+    </tr>
+  </table>
+</div>
+
+

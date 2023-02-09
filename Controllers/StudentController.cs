@@ -71,7 +71,7 @@ namespace ASP.NET_PROJECT.Controllers
             return Ok(new StudentDTO(student));
         }
 
-        [Authorize(Roles = UserRoles.Admin)]
+        //[Authorize(Roles = UserRoles.Admin)]
         [HttpDelete]
         public async Task<IActionResult> DeleteAllStudents()
         {
@@ -89,7 +89,7 @@ namespace ASP.NET_PROJECT.Controllers
             return NoContent();
         }
 
-        [Authorize(Roles = UserRoles.Admin)]
+        //[Authorize(Roles = UserRoles.Admin)]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteStudentById(int id)
         {
@@ -107,7 +107,7 @@ namespace ASP.NET_PROJECT.Controllers
             return NoContent();
         }
 
-        [Authorize(Roles = UserRoles.Admin)]
+        //[Authorize(Roles = UserRoles.Admin)]
         [HttpPost]
         public async Task<IActionResult> CreateStudent(CreateStudentDTO dto)
         {

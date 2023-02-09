@@ -1,0 +1,61 @@
+<div class="spacing">
+  <h1>Students</h1>
+  <ul>
+    <li>
+      <label for="student-first-name">Enter Student First Name:</label>
+      <input type="text" [(ngModel)]="selectedFirstName">
+    </li>
+    <li>
+      <label for="student-last-name">Enter Student Last Name:</label>
+      <input type="text" [(ngModel)]="selectedLastName">
+    </li>
+    <li>
+      <label for="student-avg-grade">Enter Student Average Grade:</label>
+      <input type="text" [(ngModel)]="selectedAvgGrade">
+    </li>
+    <li>
+      <label for="student-professor-id">Enter Professor Id:</label>
+      <input type="text" [(ngModel)]="selectedProfessorId">
+    </li>
+  </ul>
+  <button (click)="createStudent(selectedFirstName, selectedLastName, selectedAvgGrade, selectedProfessorId)">Create Student</button>
+
+  <button (click)="deleteAllStudents()">Delete All Students</button>
+
+  <div>
+    <label for="student-id">Enter Student Id for deletion:</label>
+    <input type="text" [(ngModel)]="selectedDeleteId">
+    <button (click)="deleteStudentById(selectedDeleteId)">Delete Student</button>
+  </div>
+  <div>
+    <label for="student-id">Enter Student Name:</label>
+    <input type="text" [(ngModel)]="selectedStudentName">
+    <button (click)="showSelectedStudent = true; getStudentByName(selectedStudentName)">Find Student</button>
+  </div>
+  <div>
+    <label for="student-id">Enter Student ID:</label>
+    <input type="text" [(ngModel)]="selectedId">
+    <button (click)="getStudentById(selectedId)">Find Student</button>
+  </div>
+  <div *ngIf="selectedStudent">
+    <h2>Selected Student</h2>
+    <p>ID: {{ selectedStudent.id }}</p>
+    <p>First Name: {{ selectedStudent.first_Name }}</p>
+    <p>Last Name: {{ selectedStudent.last_Name }}</p>
+    <p>Average Grade: {{ selectedStudent.avg_Grade }}</p>
+  </div>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Average Grade</th>
+    </tr>
+    <tr *ngFor="let student of students">
+      <td>{{ student.id }}</td>
+      <td>{{ student.first_Name }}</td>
+      <td>{{ student.last_Name }}</td>
+      <td>{{ student.avg_Grade }}</td>
+    </tr>
+  </table>
+</div>

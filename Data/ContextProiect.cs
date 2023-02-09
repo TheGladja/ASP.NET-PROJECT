@@ -32,7 +32,6 @@ namespace ASP.NET_PROJECT.Data
                 .HasOne(p => p.Address)
                 .WithOne(a => a.Professor);
 
-
             //Many to Many
 
             modelBuilder.Entity<ProfessorSchool>().HasKey(ps => new { ps.ProfessorId, ps.SchoolId });

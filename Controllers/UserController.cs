@@ -56,7 +56,7 @@ namespace ASP.NET_PROJECT.Controllers
             return Ok(new UserDTO(user));
         }
 
-        [Authorize(Roles = UserRoles.Admin)]
+        //[Authorize(Roles = UserRoles.Admin)]
         [HttpPost]
         [Route("UpdateUsername/{oldName}/{newName}")]
         public async Task<IActionResult> UpdateUsername(string oldName, string newName)

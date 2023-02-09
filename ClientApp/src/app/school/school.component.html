@@ -1,0 +1,49 @@
+<div class="spacing">
+  <h1>Schools</h1>
+    <ul>
+      <li>
+        <label for="school-name">Enter School Name:</label>
+        <input type="text" [(ngModel)]="selectedName">
+      </li>
+      <li>
+        <label for="school-rating">Enter School Rating:</label>
+        <input type="text" [(ngModel)]="selectedRating">
+      </li>
+    </ul>
+    <button (click)="createSchool(selectedName, selectedRating)">Create School</button>
+  <button (click)="deleteAllSchools()">Delete All Schools</button>
+  <div>
+    <label for="school-id">Enter School Id for deletion:</label>
+    <input type="text" [(ngModel)]="selectedDeleteId">
+    <button (click)="deleteSchoolById(selectedDeleteId)">Delete School</button>
+  </div>
+  <div>
+    <label for="school-id">Enter School Name:</label>
+    <input type="text" [(ngModel)]="selectedSchoolName">
+    <button (click)="showSelectedSchool = true; getSchoolByName(selectedSchoolName)">Find School</button>
+  </div>
+  <div>
+    <label for="school-id">Enter School ID:</label>
+    <input type="text" [(ngModel)]="selectedId">
+    <button (click)="getSchoolById(selectedId)">Find School</button>
+  </div>
+  <div *ngIf="selectedSchool">
+    <h2>Selected School</h2>
+    <p>ID: {{ selectedSchool.id }}</p>
+    <p>Name: {{ selectedSchool.name }}</p>
+    <p>Rating: {{ selectedSchool.rating }}</p>
+  </div>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Rating</th>
+    </tr>
+    <tr *ngFor="let school of schools">
+      <td>{{ school.id }}</td>
+      <td>{{ school.name }}</td>
+      <td>{{ school.rating }}</td>
+    </tr>
+  </table>
+</div>
+

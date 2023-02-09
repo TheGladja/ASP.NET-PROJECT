@@ -55,7 +55,7 @@ namespace ASP.NET_PROJECT.Controllers
             return Ok(new ProfessorDTO(professor));
         }
 
-        [Authorize(Roles = UserRoles.Admin)]
+        //[Authorize(Roles = UserRoles.Admin)]
         [HttpDelete]
         public async Task<IActionResult> DeleteAllProfesors()
         {
@@ -73,7 +73,7 @@ namespace ASP.NET_PROJECT.Controllers
             return NoContent();
         }
 
-        [Authorize(Roles = UserRoles.Admin)]
+        //[Authorize(Roles = UserRoles.Admin)]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProfessorById(int id)
         {
@@ -106,7 +106,7 @@ namespace ASP.NET_PROJECT.Controllers
             return Ok(new ProfessorDTO(professor));
         }
 
-        [Authorize(Roles = UserRoles.Admin)]
+        //[Authorize(Roles = UserRoles.Admin)]
         [HttpPost]
         public async Task<IActionResult> CreateProfessor(CreateProfessorDTO dto)
         {
